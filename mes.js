@@ -22,7 +22,8 @@ class Mes {
         this.apurarDespesas();
         this.apurarReceitas();
         this.apurarJuros();
-        this.calcularRendimentos();
+        this.calcularRendimentos()
+        this.distribuirDespesas()
     }
     apurarRendimentos() {
         if (this.totalizadorDoMes.saldo > 0) {
