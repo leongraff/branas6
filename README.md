@@ -23,3 +23,5 @@ Criar ou importar um módulo.
         // o this serve para usar uma função que é do mesmo objeto
         //const totalizadorDoMes = { saldo: 0, juros: 0, rendimentos: 0, receitas: 0, despesas: 0, distribuicaoDeDespesas: [] }
         // \/ aqui n faz sentido jogar um const pois é uma propriedade do totalizador..
+
+MODULARIZAÇÃO: distribui as responsabilidades e torna elas faceis de se manter...
