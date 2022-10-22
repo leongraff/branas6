@@ -1,8 +1,8 @@
 class Mes {
-    constructor(nome, saldoInicial) {
+    constructor(nome) {
         if (nome === "") throw new Error("Mês Inválido: O nome é obrigatório")
         this.nome = nome
-        this.saldoInicial = saldoInicial;
+        this.saldoInicial = 0;
         this.totalizador = { saldo: 0, juros: 0, rendimentos: 0, receitas: 0, despesas: 0, distribuicaoDeDespesas: [] }
         this.lancamentos = [];
     }
@@ -20,6 +20,7 @@ class Mes {
     calcularSaldo(saldoInicial, lancamentos) {
         // aqui zera tudo para ele não considerar valores antigos no calculo (totalizadorDoMes)
         this.totalizador = { saldo: 0, juros: 0, rendimentos: 0, receitas: 0, despesas: 0, distribuicaoDeDespesas: [] }
+        this.totalizador.saldo = this.saldoInicial;
         this.apurarDespesas();
         this.apurarReceitas();
         this.apurarJuros();
@@ -59,7 +60,7 @@ class Mes {
         for (const lancamento of this.lancamentos) {
             if (lancamento.tipo === "despesa") {
                 const percentual = arredondar((lancamento.valor / this.totalizador.despesas) * -100)
-                distribuicaoDeDespesas.push({ categoria: lancamento.categoria, percentual })
+                distribuicaoDeDespesas.push({ categoria: lancamento.categoria, valor: lancamento.valor, percentual })
             }
         }
         return this.totalizador.distribuicaoDeDespesas = distribuicaoDeDespesas
